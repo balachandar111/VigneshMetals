@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@layer base {
+  html {
+    font-family: 'Poppins', sans-serif;
+    color: #808080;
+    background-color: #ffffff;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Libre Baskerville', serif;
+    color: #1c1d1d;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-5 py-3 text-sm font-medium tracking-wider uppercase transition-all duration-300 hover:bg-primary-light;
+    border-radius: 0;
+  }
+
+  .btn-outline {
+    @apply border border-primary text-primary px-5 py-3 text-sm font-medium tracking-wider uppercase transition-all duration-300 hover:bg-primary hover:text-white;
+    border-radius: 0;
+  }
+
+  .product-card {
+    @apply relative overflow-hidden bg-white transition-all duration-300;
+    border-radius: 10px;
+  }
+
+  .product-card:hover {
+    @apply shadow-product-hover;
+    transform: translateY(-4px);
+  }
+
+  .section-heading {
+    @apply font-heading text-3xl md:text-4xl text-brand-dark;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: 1.1;
+  }
+
+  .nav-link {
+    @apply text-xs font-medium tracking-widest uppercase text-primary transition-colors duration-200 hover:text-primary-light;
+  }
+
+  .badge-sale {
+    @apply bg-accent-red text-white text-xs font-medium px-2 py-1;
+  }
+
+  .price-current {
+    @apply text-brand-dark font-medium;
+  }
+
+  .price-original {
+    @apply text-brand-text line-through text-sm;
+  }
+
+  .price-savings {
+    @apply text-accent-red text-sm;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #85641b, #c9a84c, #85641b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-warm-cream {
+    background-color: #fff9ea;
+  }
+
+  .border-gold {
+    border-color: #85641b;
+  }
+
+  .flame-glow {
+    filter: drop-shadow(0 0 8px rgba(255, 140, 0, 0.6)) drop-shadow(0 0 20px rgba(255, 80, 0, 0.4));
+  }
+
+  .brass-shine {
+    background: linear-gradient(135deg, #c9a84c 0%, #85641b 30%, #c9a84c 60%, #85641b 100%);
+  }
+
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+}
