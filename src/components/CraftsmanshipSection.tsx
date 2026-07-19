@@ -61,7 +61,7 @@ export default function CraftsmanshipSection() {
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                 <div className="absolute bottom-4 left-4 bg-primary text-white px-4 py-2 text-xs font-medium">
-                  38+ Years of Craftsmanship
+                  25+ Years of Craftsmanship
                 </div>
               </div>
               {/* Two smaller images */}
@@ -113,7 +113,7 @@ export default function CraftsmanshipSection() {
               <span className="block text-primary">Sacred Illumination</span>
             </h2>
             <p className="text-brand-text text-sm leading-relaxed mb-6">
-              Founded in 1985 in the heart of Tamil Nadu, Vignesh Metals has been preserving
+              Founded in 2000 in the heart of Tamil Nadu, Vignesh Metals has been preserving
               the ancient art of brass lamp making for over three decades. Our master craftsmen
               combine traditional techniques with meticulous attention to detail to create
               lamps that are not just objects, but sacred heirlooms.

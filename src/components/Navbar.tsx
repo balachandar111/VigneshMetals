@@ -8,24 +8,16 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   {
-    label: 'Oil Lamps',
+    label: 'Products',
     href: '#products',
     submenu: [
-      { label: 'Kuthu Vilakku', href: '#products' },
-      { label: 'Deepa Lakshmi Lamp', href: '#products' },
-      { label: 'Hanging Lamps', href: '#products' },
-      { label: 'Temple Lamps', href: '#products' },
+      { label: 'Brass Diyas', href: '#products' },
+      { label: 'Kamatchi & Temple Items', href: '#products' },
+      { label: 'Pooja Articles & Vessels', href: '#products' },
+      { label: 'Plates & Kitchenware', href: '#products' },
     ],
   },
-  {
-    label: 'Collections',
-    href: '#collections',
-    submenu: [
-      { label: 'Pooja Essentials', href: '#collections' },
-      { label: 'Festival Special', href: '#collections' },
-      { label: 'Gift Sets', href: '#collections' },
-    ],
-  },
+  { label: 'Collections', href: '#collections' },
   { label: 'Craftsmanship', href: '#craftsmanship' },
   { label: 'About Us', href: '#about' },
   { label: 'Contact', href: '#contact' },
@@ -59,6 +51,11 @@ export default function Navbar() {
     setActiveSubmenu(null);
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleSubmenuClick = (href: string, categoryLabel: string) => {
+    window.dispatchEvent(new CustomEvent('vm-filter-category', { detail: categoryLabel }));
+    handleNavClick(href);
   };
 
   return (
@@ -160,7 +157,7 @@ export default function Navbar() {
                     {item.submenu.map((sub) => (
                       <button
                         key={sub.label}
-                        onClick={() => handleNavClick(sub.href)}
+                        onClick={() => handleSubmenuClick(sub.href, sub.label)}
                         className="block w-full text-left px-5 py-2 text-xs text-brand-text hover:text-primary hover:bg-secondary transition-colors"
                       >
                         {sub.label}
@@ -215,7 +212,7 @@ export default function Navbar() {
                     {item.submenu.map((sub) => (
                       <button
                         key={sub.label}
-                        onClick={() => handleNavClick(sub.href)}
+                        onClick={() => handleSubmenuClick(sub.href, sub.label)}
                         className="block w-full text-left py-2 text-xs text-brand-text hover:text-primary"
                       >
                         {sub.label}

@@ -79,7 +79,7 @@ export default function HeroSection() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-primary text-white text-xs px-4 py-2 mb-6 tracking-wider uppercase">
               <span className="w-1.5 h-1.5 bg-accent-gold rounded-full"></span>
-              Handcrafted Since 1985
+              Handcrafted Since 2000
             </div>
 
             {/* Main Heading */}
@@ -100,7 +100,7 @@ export default function HeroSection() {
               {[
                 { value: '500+', label: 'Designs' },
                 { value: '10K+', label: 'Happy Customers' },
-                { value: '38+', label: 'Years Legacy' },
+                { value: '25+', label: 'Years Legacy' },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div className="font-heading text-2xl text-primary">{stat.value}</div>

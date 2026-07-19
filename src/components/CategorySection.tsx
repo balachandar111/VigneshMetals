@@ -26,16 +26,16 @@ const categories: Category[] = [
 {
   name: 'Pooja Articles & Vessels',
   image: "/assets/images/catalog/br-cop-pooja-article-cop-p-pathiram-0.jpg",
-  alt: 'Brass and copper pooja articles, chombu, agardans and pathiram vessels for daily rituals',
+  alt: 'Brass and copper pooja pathiram vessels for daily rituals',
   href: '#products',
-  count: '12+ Designs'
+  count: '4 Designs'
 },
 {
   name: 'Plates & Kitchenware',
   image: "/assets/images/catalog/br-cop-plates-cop-fancy-plate-0.jpg",
-  alt: 'Brass and copper plates, trays, utensils and kitchenware for home and temple use',
+  alt: 'Brass and copper plates and tope covers for home and temple use',
   href: '#products',
-  count: '12+ Designs'
+  count: '2 Designs'
 }];
 
 

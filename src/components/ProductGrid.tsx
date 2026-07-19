@@ -183,17 +183,7 @@ const products: Product[] = [
   size: 'Multiple Sizes',
   category: 'Brass Diyas'
 },
-{
-  id: 16,
-  name: 'Crystal Deep Pillar – Fancy Diyas',
-  shortName: 'Crystal Deep Pillar',
-  image: "/assets/images/catalog/fancy-diyas-crystal-deep-pillar-3.jpg",
-  hoverImage: "/assets/images/catalog/fancy-diyas-crystal-deep-pillar-3.jpg",
-  alt: 'Crystal Deep Pillar handcrafted pure brass pooja item from the fancy diyas collection',
-  material: 'Pure Brass',
-  size: 'Multiple Sizes',
-  category: 'Brass Diyas'
-},
+
 {
   id: 17,
   name: 'Cop Kalasam – Temple Utensils',
@@ -237,94 +227,6 @@ const products: Product[] = [
   material: 'Pure Brass',
   size: 'Multiple Sizes',
   category: 'Kamatchi & Temple Items'
-},
-{
-  id: 21,
-  name: 'Afk – Agardans',
-  shortName: 'Afk',
-  image: "/assets/images/catalog/agardans-afk-0.jpg",
-  hoverImage: "/assets/images/catalog/agardans-afk-0.jpg",
-  alt: 'Afk handcrafted pure brass pooja item from the agardans collection',
-  material: 'Pure Brass',
-  size: 'Multiple Sizes',
-  category: 'Pooja Articles & Vessels'
-},
-{
-  id: 22,
-  name: 'Ag Tara – Agardans',
-  shortName: 'Ag Tara',
-  image: "/assets/images/catalog/agardans-ag-tara-1.jpg",
-  hoverImage: "/assets/images/catalog/agardans-ag-tara-1.jpg",
-  alt: 'Ag Tara handcrafted pure brass pooja item from the agardans collection',
-  material: 'Pure Brass',
-  size: 'Multiple Sizes',
-  category: 'Pooja Articles & Vessels'
-},
-{
-  id: 23,
-  name: 'Ag Kalash – Agardans',
-  shortName: 'Ag Kalash',
-  image: "/assets/images/catalog/agardans-ag-kalash-2.jpg",
-  hoverImage: "/assets/images/catalog/agardans-ag-kalash-2.jpg",
-  alt: 'Ag Kalash handcrafted pure brass pooja item from the agardans collection',
-  material: 'Pure Brass',
-  size: 'Multiple Sizes',
-  category: 'Pooja Articles & Vessels'
-},
-{
-  id: 24,
-  name: 'Ag Kattori – Agardans',
-  shortName: 'Ag Kattori',
-  image: "/assets/images/catalog/agardans-ag-kattori-3.jpg",
-  hoverImage: "/assets/images/catalog/agardans-ag-kattori-3.jpg",
-  alt: 'Ag Kattori handcrafted pure brass pooja item from the agardans collection',
-  material: 'Pure Brass',
-  size: 'Multiple Sizes',
-  category: 'Pooja Articles & Vessels'
-},
-{
-  id: 25,
-  name: 'J Chombu – Chombu & Glass',
-  shortName: 'J Chombu',
-  image: "/assets/images/catalog/chombu-glass-j-chombu-0.jpg",
-  hoverImage: "/assets/images/catalog/chombu-glass-j-chombu-0.jpg",
-  alt: 'J Chombu handcrafted pure brass pooja item from the chombu & glass collection',
-  material: 'Pure Brass',
-  size: 'Multiple Sizes',
-  category: 'Pooja Articles & Vessels'
-},
-{
-  id: 26,
-  name: 'Cop J Chombu – Chombu & Glass',
-  shortName: 'Cop J Chombu',
-  image: "/assets/images/catalog/chombu-glass-cop-j-chombu-1.jpg",
-  hoverImage: "/assets/images/catalog/chombu-glass-cop-j-chombu-1.jpg",
-  alt: 'Cop J Chombu handcrafted pure copper pooja item from the chombu & glass collection',
-  material: 'Pure Copper',
-  size: 'Multiple Sizes',
-  category: 'Pooja Articles & Vessels'
-},
-{
-  id: 27,
-  name: 'Br Vaishnavi Chombu – Chombu & Glass',
-  shortName: 'Br Vaishnavi Chombu',
-  image: "/assets/images/catalog/chombu-glass-br-vaishnavi-chombu-2.jpg",
-  hoverImage: "/assets/images/catalog/chombu-glass-br-vaishnavi-chombu-2.jpg",
-  alt: 'Br Vaishnavi Chombu handcrafted pure brass pooja item from the chombu & glass collection',
-  material: 'Pure Brass',
-  size: 'Multiple Sizes',
-  category: 'Pooja Articles & Vessels'
-},
-{
-  id: 28,
-  name: 'Cop Valapoo Lota – Chombu & Glass',
-  shortName: 'Cop Valapoo Lota',
-  image: "/assets/images/catalog/chombu-glass-cop-valapoo-lota-3.jpg",
-  hoverImage: "/assets/images/catalog/chombu-glass-cop-valapoo-lota-3.jpg",
-  alt: 'Cop Valapoo Lota handcrafted pure copper pooja item from the chombu & glass collection',
-  material: 'Pure Copper',
-  size: 'Multiple Sizes',
-  category: 'Pooja Articles & Vessels'
 },
 {
   id: 29,
@@ -392,116 +294,7 @@ const products: Product[] = [
   size: 'Multiple Sizes',
   category: 'Plates & Kitchenware'
 },
-{
-  id: 35,
-  name: 'Beeding Plate – Plates & Trays',
-  shortName: 'Beeding Plate',
-  image: "/assets/images/catalog/br-cop-plates-beeding-plate-2.jpg",
-  hoverImage: "/assets/images/catalog/br-cop-plates-beeding-plate-2.jpg",
-  alt: 'Beeding Plate handcrafted pure brass pooja item from the plates & trays collection',
-  material: 'Pure Brass',
-  size: 'Multiple Sizes',
-  category: 'Plates & Kitchenware'
-},
-{
-  id: 36,
-  name: 'Bnp Spl – Plates & Trays',
-  shortName: 'Bnp Spl',
-  image: "/assets/images/catalog/br-cop-plates-bnp-spl-3.jpg",
-  hoverImage: "/assets/images/catalog/br-cop-plates-bnp-spl-3.jpg",
-  alt: 'Bnp Spl handcrafted pure brass pooja item from the plates & trays collection',
-  material: 'Pure Brass',
-  size: 'Multiple Sizes',
-  category: 'Plates & Kitchenware'
-},
-{
-  id: 37,
-  name: 'Cop Porkalam – Utensils',
-  shortName: 'Cop Porkalam',
-  image: "/assets/images/catalog/br-cop-utensils-cop-porkalam-0.jpg",
-  hoverImage: "/assets/images/catalog/br-cop-utensils-cop-porkalam-0.jpg",
-  alt: 'Cop Porkalam handcrafted pure copper pooja item from the utensils collection',
-  material: 'Pure Copper',
-  size: 'Multiple Sizes',
-  category: 'Plates & Kitchenware'
-},
-{
-  id: 38,
-  name: 'Cop Andi – Utensils',
-  shortName: 'Cop Andi',
-  image: "/assets/images/catalog/br-cop-utensils-cop-andi-1.jpg",
-  hoverImage: "/assets/images/catalog/br-cop-utensils-cop-andi-1.jpg",
-  alt: 'Cop Andi handcrafted pure copper pooja item from the utensils collection',
-  material: 'Pure Copper',
-  size: 'Multiple Sizes',
-  category: 'Plates & Kitchenware'
-},
-{
-  id: 39,
-  name: 'Br Andi – Utensils',
-  shortName: 'Br Andi',
-  image: "/assets/images/catalog/br-cop-utensils-br-andi-2.jpg",
-  hoverImage: "/assets/images/catalog/br-cop-utensils-br-andi-2.jpg",
-  alt: 'Br Andi handcrafted pure brass pooja item from the utensils collection',
-  material: 'Pure Brass',
-  size: 'Multiple Sizes',
-  category: 'Plates & Kitchenware'
-},
-{
-  id: 40,
-  name: 'J Gundu – Utensils',
-  shortName: 'J Gundu',
-  image: "/assets/images/catalog/br-cop-utensils-j-gundu-3.jpg",
-  hoverImage: "/assets/images/catalog/br-cop-utensils-j-gundu-3.jpg",
-  alt: 'J Gundu handcrafted pure brass pooja item from the utensils collection',
-  material: 'Pure Brass',
-  size: 'Multiple Sizes',
-  category: 'Plates & Kitchenware'
-},
-{
-  id: 41,
-  name: 'Cup & Saucer – Kitchenware',
-  shortName: 'Cup & Saucer',
-  image: "/assets/images/catalog/kitchenware-cup-saucer-0.jpg",
-  hoverImage: "/assets/images/catalog/kitchenware-cup-saucer-0.jpg",
-  alt: 'Cup & Saucer handcrafted pure brass pooja item from the kitchenware collection',
-  material: 'Pure Brass',
-  size: 'Multiple Sizes',
-  category: 'Plates & Kitchenware'
-},
-{
-  id: 42,
-  name: 'Coffee Dabara Set – Kitchenware',
-  shortName: 'Coffee Dabara Set',
-  image: "/assets/images/catalog/kitchenware-coffee-dabara-set-1.jpg",
-  hoverImage: "/assets/images/catalog/kitchenware-coffee-dabara-set-1.jpg",
-  alt: 'Coffee Dabara Set handcrafted pure brass pooja item from the kitchenware collection',
-  material: 'Pure Brass',
-  size: 'Multiple Sizes',
-  category: 'Plates & Kitchenware'
-},
-{
-  id: 43,
-  name: 'Handle Tea Glass – Kitchenware',
-  shortName: 'Handle Tea Glass',
-  image: "/assets/images/catalog/kitchenware-handle-tea-glass-2.jpg",
-  hoverImage: "/assets/images/catalog/kitchenware-handle-tea-glass-2.jpg",
-  alt: 'Handle Tea Glass handcrafted pure brass pooja item from the kitchenware collection',
-  material: 'Pure Brass',
-  size: 'Multiple Sizes',
-  category: 'Plates & Kitchenware'
-},
-{
-  id: 44,
-  name: 'Sheet Uruli – Kitchenware',
-  shortName: 'Sheet Uruli',
-  image: "/assets/images/catalog/kitchenware-sheet-uruli-3.jpg",
-  hoverImage: "/assets/images/catalog/kitchenware-sheet-uruli-3.jpg",
-  alt: 'Sheet Uruli handcrafted pure brass pooja item from the kitchenware collection',
-  material: 'Pure Brass',
-  size: 'Multiple Sizes',
-  category: 'Plates & Kitchenware'
-}];
+];
 
 
 export default function ProductGrid() {
@@ -540,8 +333,12 @@ export default function ProductGrid() {
   products.filter((p) => p.category === activeCategory);
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-20 bg-white" id="products">
-      <div className="max-w-[1500px] mx-auto px-5 md:px-10">
+    <section ref={sectionRef} className="py-16 md:py-20 bg-white relative overflow-hidden" id="products">
+      {/* Ambient backdrop accents */}
+      <div className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-[0.04]" style={{ background: 'radial-gradient(circle, #c9a84c 0%, transparent 70%)' }}></div>
+      <div className="pointer-events-none absolute -bottom-24 -left-24 w-96 h-96 rounded-full opacity-[0.04]" style={{ background: 'radial-gradient(circle, #6c1212 0%, transparent 70%)' }}></div>
+
+      <div className="max-w-[1500px] mx-auto px-5 md:px-10 relative">
         {/* Section Header */}
         <div
           className={`flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 transition-all duration-700 ${
@@ -553,87 +350,116 @@ export default function ProductGrid() {
               <div className="h-px w-12 bg-accent-gold"></div>
               <span className="text-xs text-accent-gold tracking-widest uppercase font-medium">Our Collection</span>
             </div>
-            <h2 className="section-heading">Brass Oil Lamps</h2>
+            <h2 className="section-heading text-gradient-gold">Brass Oil Lamps</h2>
           </div>
-          <div className="flex items-center gap-4">
-            <span className="text-sm text-brand-text">{filteredProducts.length} Products</span>
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-gold"></span>
+            <span className="text-sm text-brand-text tracking-wide">
+              <span className="text-brand-dark font-semibold">{filteredProducts.length}</span> Handcrafted Pieces
+            </span>
           </div>
         </div>
 
         {/* Category Filter Tabs */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-1 md:gap-2 mb-10 border-b border-brand-border">
           {categoryTabs.map((tab) =>
           <button
             key={tab}
             onClick={() => setActiveCategory(tab)}
-            className={`text-xs md:text-sm px-4 py-2 rounded-full border transition-colors ${
+            className={`relative text-xs md:text-sm px-3 md:px-4 py-3 font-medium tracking-wide transition-colors duration-300 ${
             activeCategory === tab ?
-            'bg-primary text-white border-primary' :
-            'bg-white text-brand-text border-brand-border hover:border-primary hover:text-primary'}`
+            'text-primary' :
+            'text-brand-text hover:text-brand-dark'}`
             }>
             
               {tab}
+              <span
+              className={`absolute left-0 right-0 -bottom-px h-[2px] transition-transform duration-300 origin-left ${
+              activeCategory === tab ? 'scale-x-100' : 'scale-x-0'}`
+              }
+              style={{ background: 'linear-gradient(90deg, #6c1212, #c9a84c)' }}>
+            </span>
             </button>
           )}
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-7">
           {filteredProducts.map((product, i) =>
           <div
             key={product.id}
-            className={`product-card group cursor-pointer transition-all duration-700 ${
+            className={`group cursor-pointer transition-all duration-700 ${
             visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`
             }
             style={{ transitionDelay: `${i * 80}ms` }}
             onMouseEnter={() => setHoveredId(product.id)}
             onMouseLeave={() => setHoveredId(null)}>
             
-              {/* Image Container */}
-              <div className="relative overflow-hidden bg-secondary" style={{ paddingBottom: '100%' }}>
-                <img
-                src={product.image}
-                alt={product.alt}
-                className={`absolute inset-0 w-full h-full object-cover transition-all duration-500 ${
-                hoveredId === product.id ? 'scale-110' : 'scale-100'}`
-                } />
-              
+              {/* Artifact Display Frame */}
+              <div
+              className="relative overflow-hidden bg-warm-cream border border-brand-border transition-all duration-300 group-hover:border-accent-gold group-hover:shadow-product-hover group-hover:-translate-y-1"
+              style={{ borderRadius: '4px' }}>
+                
+                {/* Image Container */}
+                <div className="relative overflow-hidden" style={{ paddingBottom: '100%' }}>
+                  <img
+                  src={product.image}
+                  alt={product.alt}
+                  className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
+                  hoveredId === product.id ? 'scale-110' : 'scale-100'}`
+                  } />
+                
 
-                {/* Badges */}
-                <div className="absolute top-3 left-3 flex flex-col gap-1">
-                  {product.isNew &&
-                <span className="bg-primary text-white text-xs font-medium px-2 py-1">New</span>
-                }
-                  {product.isBestseller &&
-                <span className="bg-accent-gold text-white text-xs font-medium px-2 py-1">Bestseller</span>
-                }
-                </div>
+                  {/* Subtle vignette for depth */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
-                {/* Hover Action */}
-                <div
-                className={`absolute bottom-0 left-0 right-0 flex gap-2 p-3 transition-all duration-300 ${
-                hoveredId === product.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`
-                }>
-                  <button
-                  onClick={handleScrollToContact}
-                  className="flex-1 bg-white text-primary text-xs font-medium py-2 px-3 flex items-center justify-center gap-1 hover:bg-primary hover:text-white transition-colors">
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                    </svg>
-                    Enquire
-                  </button>
+                  {/* Corner brackets – signature "museum artifact" reveal */}
+                  {(['top-0 left-0 border-t-2 border-l-2', 'top-0 right-0 border-t-2 border-r-2', 'bottom-0 left-0 border-b-2 border-l-2', 'bottom-0 right-0 border-b-2 border-r-2'] as const).
+                map((pos, idx) =>
+                <span
+                  key={idx}
+                  className={`absolute w-4 h-4 md:w-5 md:h-5 m-2 border-accent-gold transition-all duration-300 ${pos} ${
+                  hoveredId === product.id ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`
+                  }>
+                </span>
+                )}
+
+                  {/* Badges */}
+                  <div className="absolute top-3 left-3 flex flex-col gap-1 z-10">
+                    {product.isNew &&
+                  <span className="bg-primary text-white text-[10px] font-medium tracking-wider uppercase px-2 py-1 shadow-sm">New</span>
+                  }
+                    {product.isBestseller &&
+                  <span className="brass-shine text-white text-[10px] font-medium tracking-wider uppercase px-2 py-1 shadow-sm">Bestseller</span>
+                  }
+                  </div>
+
+                  {/* Hover Action */}
+                  <div
+                  className={`absolute bottom-0 left-0 right-0 p-3 transition-all duration-300 ${
+                  hoveredId === product.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`
+                  }>
+                    <button
+                    onClick={handleScrollToContact}
+                    className="w-full bg-warm-cream/95 backdrop-blur-sm text-primary text-xs font-medium tracking-wide py-2.5 px-3 flex items-center justify-center gap-1.5 border border-accent-gold hover:bg-primary hover:text-white hover:border-primary transition-colors duration-300">
+                      <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                      </svg>
+                      Enquire Now
+                    </button>
+                  </div>
                 </div>
               </div>
 
               {/* Product Info */}
-              <div className="p-3 md:p-4">
-                <div className="flex items-center gap-2 mb-1">
-                  <span className="text-[10px] text-brand-text uppercase tracking-wider">{product.material}</span>
-                  <span className="text-[10px] text-brand-border">|</span>
+              <div className="pt-3 px-1">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="text-[10px] text-accent-gold uppercase tracking-widest font-medium">{product.material}</span>
+                  <span className="w-1 h-1 rounded-full bg-brand-border"></span>
                   <span className="text-[10px] text-brand-text uppercase tracking-wider">{product.size}</span>
                 </div>
-                <h3 className="font-body text-xs md:text-sm text-brand-dark font-medium leading-snug mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                <h3 className="font-heading text-sm md:text-base text-brand-dark leading-snug group-hover:text-primary transition-colors duration-300 line-clamp-2">
                   {product.shortName}
                 </h3>
               </div>
@@ -642,12 +468,12 @@ export default function ProductGrid() {
         </div>
 
         {/* View All */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-14">
           <button
             onClick={handleScrollToContact}
-            className="btn-outline inline-flex items-center gap-2">
+            className="btn-outline inline-flex items-center gap-2 group">
             View All Products
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </button>
