@@ -17,7 +17,16 @@ const navItems: NavItem[] = [
       { label: 'Plates & Kitchenware', href: '#products' },
     ],
   },
-  { label: 'Collections', href: '#collections' },
+  {
+    label: 'Collections',
+    href: '#collections',
+    submenu: [
+      { label: 'Brass Diyas', href: '#products' },
+      { label: 'Kamatchi & Temple Items', href: '#products' },
+      { label: 'Pooja Articles & Vessels', href: '#products' },
+      { label: 'Plates & Kitchenware', href: '#products' },
+    ],
+  },
   { label: 'Craftsmanship', href: '#craftsmanship' },
   { label: 'About Us', href: '#about' },
   { label: 'Contact', href: '#contact' },
@@ -93,19 +102,16 @@ export default function Navbar() {
             {/* Logo */}
             <div className="flex flex-col items-center">
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
-                  <svg viewBox="0 0 48 48" fill="none" className="w-full h-full">
-                    <path d="M24 4 C24 4 18 10 18 18 C18 22 20 25 24 27 C28 25 30 22 30 18 C30 10 24 4 24 4Z" fill="#6c1212" />
-                    <ellipse cx="24" cy="27" rx="8" ry="3" fill="#85641b" />
-                    <rect x="16" y="30" width="16" height="3" rx="1" fill="#85641b" />
-                    <path d="M12 33 L36 33 L38 44 L10 44 Z" fill="#c9a84c" />
-                    <path d="M10 44 L38 44 L40 47 L8 47 Z" fill="#85641b" />
-                    <circle cx="24" cy="18" r="3" fill="#FFD700" opacity="0.8" />
-                  </svg>
+                <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center overflow-hidden rounded-full">
+                  <img
+                    src="/assets/images/catalog/logo1.jpeg"
+                    alt="Vignesh Stores logo"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
                   <div className="font-heading text-lg md:text-xl text-primary leading-tight">Vignesh</div>
-                  <div className="font-heading text-lg md:text-xl text-accent-gold leading-tight">Metals</div>
+                  <div className="font-heading text-lg md:text-xl text-accent-gold leading-tight">Stores</div>
                 </div>
               </div>
               <div className="text-[9px] tracking-[0.2em] text-brand-text uppercase hidden md:block">Traditional Brass Crafts</div>

@@ -12,6 +12,20 @@ export default function Footer() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const collectionLabels = new Set([
+    'Brass Diyas',
+    'Kamatchi & Temple Items',
+    'Pooja Articles & Vessels',
+    'Plates & Kitchenware',
+  ]);
+
+  const handleLinkClick = (label: string, href: string) => {
+    if (collectionLabels.has(label)) {
+      window.dispatchEvent(new CustomEvent('vm-filter-category', { detail: label }));
+    }
+    handleNavClick(href);
+  };
+
   const footerLinks = [
     {
       heading: 'INFORMATION',
@@ -25,11 +39,10 @@ export default function Footer() {
     {
       heading: 'COLLECTIONS',
       links: [
-        { label: 'Kuthu Vilakku', href: '#products' },
-        { label: 'Deepa Lakshmi', href: '#products' },
-        { label: 'Hanging Lamps', href: '#products' },
-        { label: 'Temple Lamps', href: '#products' },
-        { label: 'Festival Special', href: '#products' },
+        { label: 'Brass Diyas', href: '#products' },
+        { label: 'Kamatchi & Temple Items', href: '#products' },
+        { label: 'Pooja Articles & Vessels', href: '#products' },
+        { label: 'Plates & Kitchenware', href: '#products' },
       ],
     },
     {
@@ -80,18 +93,15 @@ export default function Footer() {
             <div>
               {/* Logo */}
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12">
-                  <svg viewBox="0 0 48 48" fill="none" className="w-full h-full">
-                    <path d="M24 4 C24 4 18 10 18 18 C18 22 20 25 24 27 C28 25 30 22 30 18 C30 10 24 4 24 4Z" fill="#6c1212" />
-                    <ellipse cx="24" cy="27" rx="8" ry="3" fill="#85641b" />
-                    <rect x="16" y="30" width="16" height="3" rx="1" fill="#85641b" />
-                    <path d="M12 33 L36 33 L38 44 L10 44 Z" fill="#c9a84c" />
-                    <path d="M10 44 L38 44 L40 47 L8 47 Z" fill="#85641b" />
-                    <circle cx="24" cy="18" r="3" fill="#FFD700" opacity="0.8" />
-                  </svg>
+                <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                  <img
+                    src="/assets/images/catalog/logo1.jpeg"
+                    alt="Vignesh Stores logo"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div>
-                  <div className="font-heading text-xl text-primary">Vignesh Metals</div>
+                  <div className="font-heading text-xl text-primary">Vignesh Stores</div>
                   <div className="text-[10px] tracking-widest text-brand-text uppercase">Traditional Brass Crafts</div>
                 </div>
               </div>
@@ -124,7 +134,7 @@ export default function Footer() {
                   {col.links.map((link) => (
                     <li key={link.label}>
                       <button
-                        onClick={() => handleNavClick(link.href)}
+                        onClick={() => handleLinkClick(link.label, link.href)}
                         className="text-xs text-brand-text hover:text-primary transition-colors text-left"
                       >
                         {link.label}
@@ -142,7 +152,7 @@ export default function Footer() {
       <div className="border-t border-brand-border py-5">
         <div className="max-w-[1500px] mx-auto px-5 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-brand-text">
-            &copy; {year} Vignesh Metals. All rights reserved.
+            &copy; {year} Vignesh Stores. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <button onClick={() => handleNavClick('#')} className="text-xs text-brand-text hover:text-primary transition-colors">Privacy Policy</button>
