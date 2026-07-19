@@ -96,12 +96,12 @@ export default function Footer() {
                 <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
                   <img
                     src="/assets/images/catalog/logo1.jpeg"
-                    alt="Vignesh Stores logo"
+                    alt="Vignesh Super Store logo"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
-                  <div className="font-heading text-xl text-primary">Vignesh Stores</div>
+                  <div className="font-heading text-xl text-primary">Vignesh Super Store</div>
                   <div className="text-[10px] tracking-widest text-brand-text uppercase">Traditional Brass Crafts</div>
                 </div>
               </div>
@@ -152,7 +152,7 @@ export default function Footer() {
       <div className="border-t border-brand-border py-5">
         <div className="max-w-[1500px] mx-auto px-5 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-xs text-brand-text">
-            &copy; {year} Vignesh Stores. All rights reserved.
+            &copy; {year} Vignesh Super Store. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <button onClick={() => handleNavClick('#')} className="text-xs text-brand-text hover:text-primary transition-colors">Privacy Policy</button>

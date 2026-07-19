@@ -93,9 +93,9 @@ export default function FeaturesSection() {
             <span className="text-xs text-accent-gold tracking-widest uppercase font-medium">Why Choose Us</span>
             <div className="h-px w-12 bg-accent-gold"></div>
           </div>
-          <h2 className="section-heading mb-4">The Vignesh Metals Difference</h2>
+          <h2 className="section-heading mb-4">The Vignesh Super Store Difference</h2>
           <p className="text-brand-text max-w-2xl mx-auto text-sm leading-relaxed">
-            For over 38 years, Vignesh Metals has been the trusted name for authentic
+            For over 38 years, Vignesh Super Store has been the trusted name for authentic
             South Indian brass oil lamps. Our commitment to quality and tradition sets us apart.
           </p>
         </div>

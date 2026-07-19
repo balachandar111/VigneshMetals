@@ -113,7 +113,7 @@ export default function CraftsmanshipSection() {
               <span className="block text-primary">Sacred Illumination</span>
             </h2>
             <p className="text-brand-text text-sm leading-relaxed mb-6">
-              Founded in 2000 in the heart of Tamil Nadu, Vignesh Metals has been preserving
+              Founded in 2000 in the heart of Tamil Nadu, Vignesh Super Store has been preserving
               the ancient art of brass lamp making for over three decades. Our master craftsmen
               combine traditional techniques with meticulous attention to detail to create
               lamps that are not just objects, but sacred heirlooms.

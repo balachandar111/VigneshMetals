@@ -90,7 +90,7 @@ export default function ContactSection() {
             <span className="text-xs text-accent-gold tracking-widest uppercase font-medium">Get In Touch</span>
             <div className="h-px w-12 bg-accent-gold"></div>
           </div>
-          <h2 className="section-heading mb-4">Contact Vignesh Metals</h2>
+          <h2 className="section-heading mb-4">Contact Vignesh Super Store</h2>
           <p className="text-brand-text max-w-xl mx-auto text-sm leading-relaxed">
             Have questions about our brass oil lamps? Want to place a custom order?
             We’d love to hear from you. Reach out to us and we’ll respond within 24 hours.

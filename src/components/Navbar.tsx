@@ -131,13 +131,13 @@ export default function Navbar() {
                 <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center overflow-hidden rounded-full">
                   <img
                     src="/assets/images/catalog/logo1.jpeg"
-                    alt="Vignesh Stores logo"
+                    alt="Vignesh Super Store logo"
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
                   <div className="font-heading text-lg md:text-xl text-primary leading-tight">Vignesh</div>
-                  <div className="font-heading text-lg md:text-xl text-accent-gold leading-tight">Stores</div>
+                  <div className="font-heading text-lg md:text-xl text-accent-gold leading-tight">Super Store</div>
                 </div>
               </div>
               <div className="text-[9px] tracking-[0.2em] text-brand-text uppercase hidden md:block">Traditional Brass Crafts</div>
