@@ -183,17 +183,7 @@ const products: Product[] = [
   size: 'Multiple Sizes',
   category: 'Brass Diyas'
 },
-{
-  id: 16,
-  name: 'Crystal Deep Pillar – Fancy Diyas',
-  shortName: 'Crystal Deep Pillar',
-  image: "/assets/images/catalog/fancy-diyas-crystal-deep-pillar-3.jpg",
-  hoverImage: "/assets/images/catalog/fancy-diyas-crystal-deep-pillar-3.jpg",
-  alt: 'Crystal Deep Pillar handcrafted pure brass pooja item from the fancy diyas collection',
-  material: 'Pure Brass',
-  size: 'Multiple Sizes',
-  category: 'Brass Diyas'
-},
+
 {
   id: 17,
   name: 'Cop Kalasam – Temple Utensils',
