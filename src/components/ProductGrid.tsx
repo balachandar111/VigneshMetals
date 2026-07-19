@@ -183,7 +183,17 @@ const products: Product[] = [
   size: 'Multiple Sizes',
   category: 'Brass Diyas'
 },
-
+{
+  id: 16,
+  name: 'Crystal Deep Pillar – Fancy Diyas',
+  shortName: 'Crystal Deep Pillar',
+  image: "/assets/images/catalog/fancy-diyas-crystal-deep-pillar-3.jpg",
+  hoverImage: "/assets/images/catalog/fancy-diyas-crystal-deep-pillar-3.jpg",
+  alt: 'Crystal Deep Pillar handcrafted pure brass pooja item from the fancy diyas collection',
+  material: 'Pure Brass',
+  size: 'Multiple Sizes',
+  category: 'Brass Diyas'
+},
 {
   id: 17,
   name: 'Cop Kalasam – Temple Utensils',
@@ -301,6 +311,7 @@ export default function ProductGrid() {
   const [visible, setVisible] = useState(false);
   const [hoveredId, setHoveredId] = useState<number | null>(null);
   const [activeCategory, setActiveCategory] = useState('All');
+  const [searchQuery, setSearchQuery] = useState('');
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -317,9 +328,18 @@ export default function ProductGrid() {
     };
     window.addEventListener('vm-filter-category', handleCategoryEvent);
 
+    // Allow the Navbar search bar to filter products by keyword
+    const handleSearchEvent = (e: Event) => {
+      const custom = e as CustomEvent<string>;
+      setSearchQuery(custom.detail ?? '');
+      setActiveCategory('All');
+    };
+    window.addEventListener('vm-search-products', handleSearchEvent);
+
     return () => {
       observer.disconnect();
       window.removeEventListener('vm-filter-category', handleCategoryEvent);
+      window.removeEventListener('vm-search-products', handleSearchEvent);
     };
   }, []);
 
@@ -328,9 +348,19 @@ export default function ProductGrid() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const filteredProducts = activeCategory === 'All' ?
-  products :
-  products.filter((p) => p.category === activeCategory);
+  const clearSearch = () => setSearchQuery('');
+
+  const normalizedQuery = searchQuery.trim().toLowerCase();
+
+  const filteredProducts = products.
+  filter((p) => activeCategory === 'All' || p.category === activeCategory).
+  filter((p) =>
+  !normalizedQuery ||
+  p.shortName.toLowerCase().includes(normalizedQuery) ||
+  p.name.toLowerCase().includes(normalizedQuery) ||
+  p.material.toLowerCase().includes(normalizedQuery) ||
+  p.category.toLowerCase().includes(normalizedQuery)
+  );
 
   return (
     <section ref={sectionRef} className="py-16 md:py-20 bg-white relative overflow-hidden" id="products">
@@ -351,6 +381,19 @@ export default function ProductGrid() {
               <span className="text-xs text-accent-gold tracking-widest uppercase font-medium">Our Collection</span>
             </div>
             <h2 className="section-heading text-gradient-gold">Brass Oil Lamps</h2>
+            {normalizedQuery &&
+            <div className="mt-2 flex items-center gap-2">
+                <span className="text-xs text-brand-text">
+                  Showing results for <span className="text-brand-dark font-medium">&ldquo;{searchQuery}&rdquo;</span>
+                </span>
+                <button
+                onClick={clearSearch}
+                className="text-xs text-primary hover:text-primary-light underline underline-offset-2">
+                
+                  Clear
+                </button>
+              </div>
+            }
           </div>
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-accent-gold"></span>
@@ -384,6 +427,19 @@ export default function ProductGrid() {
         </div>
 
         {/* Product Grid */}
+        {filteredProducts.length === 0 ?
+        <div className="text-center py-16 border border-dashed border-brand-border">
+            <p className="text-brand-text text-sm mb-3">
+              No products found{normalizedQuery ? <> for &ldquo;{searchQuery}&rdquo;</> : ''}.
+            </p>
+            <button
+            onClick={() => {clearSearch();setActiveCategory('All');}}
+            className="text-xs text-primary hover:text-primary-light underline underline-offset-2">
+            
+              Clear search & filters
+            </button>
+          </div> :
+
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-7">
           {filteredProducts.map((product, i) =>
           <div
@@ -466,6 +522,7 @@ export default function ProductGrid() {
             </div>
           )}
         </div>
+        }
 
         {/* View All */}
         <div className="text-center mt-14">

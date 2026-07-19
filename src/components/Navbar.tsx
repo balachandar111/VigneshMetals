@@ -36,6 +36,8 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [mobileSearchQuery, setMobileSearchQuery] = useState('');
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -67,6 +69,20 @@ export default function Navbar() {
     handleNavClick(href);
   };
 
+  const runSearch = (query: string) => {
+    window.dispatchEvent(new CustomEvent('vm-search-products', { detail: query }));
+    setMobileOpen(false);
+    const el = document.querySelector('#products');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, query: string) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      runSearch(query);
+    }
+  };
+
   return (
     <header
       className={`sticky top-0 z-50 transition-shadow duration-300 ${
@@ -87,15 +103,25 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Search (desktop) */}
             <div className="hidden md:flex items-center gap-2 w-48">
-              <div className="flex items-center border border-brand-border px-3 py-2 w-full">
+              <div className="flex items-center border border-brand-border px-3 py-2 w-full focus-within:border-primary transition-colors">
                 <input
                   type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  onKeyDown={(e) => handleSearchKeyDown(e, searchQuery)}
                   placeholder="Search lamps..."
                   className="text-xs text-brand-text outline-none w-full font-body placeholder-brand-text"
                 />
-                <svg className="w-4 h-4 text-brand-text ml-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
+                <button
+                  type="button"
+                  onClick={() => runSearch(searchQuery)}
+                  aria-label="Search"
+                  className="ml-2 flex-shrink-0 text-brand-text hover:text-primary transition-colors"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </button>
               </div>
             </div>
 
@@ -181,15 +207,25 @@ export default function Navbar() {
       {mobileOpen && (
         <div ref={menuRef} className="md:hidden bg-white border-b border-brand-border shadow-drawer">
           <div className="px-5 py-4">
-            <div className="flex items-center border border-brand-border px-3 py-2 mb-4">
+            <div className="flex items-center border border-brand-border px-3 py-2 mb-4 focus-within:border-primary transition-colors">
               <input
                 type="text"
+                value={mobileSearchQuery}
+                onChange={(e) => setMobileSearchQuery(e.target.value)}
+                onKeyDown={(e) => handleSearchKeyDown(e, mobileSearchQuery)}
                 placeholder="Search lamps..."
                 className="text-xs text-brand-text outline-none w-full font-body"
               />
-              <svg className="w-4 h-4 text-brand-text ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
+              <button
+                type="button"
+                onClick={() => runSearch(mobileSearchQuery)}
+                aria-label="Search"
+                className="ml-2 flex-shrink-0 text-brand-text hover:text-primary transition-colors"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </button>
             </div>
             {navItems.map((item) => (
               <div key={item.label}>
