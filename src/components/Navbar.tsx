@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 interface NavItem {
   label: string;
@@ -57,11 +58,28 @@ export default function Navbar() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const scrollToSection = (href: string) => {
+    const el = document.querySelector(href);
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const goToSection = (href: string) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      // Wait for the home page to mount before scrolling
+      window.setTimeout(() => scrollToSection(href), 100);
+    } else {
+      scrollToSection(href);
+    }
+  };
+
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
     setActiveSubmenu(null);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    goToSection(href);
   };
 
   const handleSubmenuClick = (href: string, categoryLabel: string) => {
@@ -72,8 +90,7 @@ export default function Navbar() {
   const runSearch = (query: string) => {
     window.dispatchEvent(new CustomEvent('vm-search-products', { detail: query }));
     setMobileOpen(false);
-    const el = document.querySelector('#products');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    goToSection('#products');
   };
 
   const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>, query: string) => {
@@ -126,7 +143,7 @@ export default function Navbar() {
             </div>
 
             {/* Logo */}
-            <div className="flex flex-col items-center">
+            <Link to="/" className="flex flex-col items-center">
               <div className="flex items-center gap-2">
                 <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center overflow-hidden rounded-full">
                   <img
@@ -141,7 +158,7 @@ export default function Navbar() {
                 </div>
               </div>
               <div className="text-[9px] tracking-[0.2em] text-brand-text uppercase hidden md:block">Traditional Brass Crafts</div>
-            </div>
+            </Link>
 
             {/* Right icons */}
             <div className="flex items-center gap-4 w-48 justify-end">

@@ -1,15 +1,27 @@
 import { useState, useEffect } from 'react';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 export default function Footer() {
   const [year, setYear] = useState(2025);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     setYear(new Date().getFullYear());
   }, []);
 
   const handleNavClick = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
+    if (href === '#') return;
+    const scroll = () => {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    };
+    if (location.pathname !== '/') {
+      navigate('/');
+      window.setTimeout(scroll, 100);
+    } else {
+      scroll();
+    }
   };
 
   const collectionLabels = new Set([
@@ -155,11 +167,11 @@ export default function Footer() {
             &copy; {year} Vignesh Super Store. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
-            <button onClick={() => handleNavClick('#')} className="text-xs text-brand-text hover:text-primary transition-colors">Privacy Policy</button>
+            <Link to="/privacy-policy" className="text-xs text-brand-text hover:text-primary transition-colors">Privacy Policy</Link>
             <span className="text-brand-border">|</span>
-            <button onClick={() => handleNavClick('#')} className="text-xs text-brand-text hover:text-primary transition-colors">Terms & Conditions</button>
+            <Link to="/terms-and-conditions" className="text-xs text-brand-text hover:text-primary transition-colors">Terms & Conditions</Link>
             <span className="text-brand-border">|</span>
-            <button onClick={() => handleNavClick('#')} className="text-xs text-brand-text hover:text-primary transition-colors">Disclaimer</button>
+            <Link to="/disclaimer" className="text-xs text-brand-text hover:text-primary transition-colors">Disclaimer</Link>
           </div>
           <div className="flex items-center gap-2">
             {/* Payment icons */}

@@ -119,4 +119,75 @@ img {
   .animate-marquee {
     animation: marquee 25s linear infinite;
   }
+
+  .legal-content h2 {
+    font-family: 'Libre Baskerville', serif;
+    color: #1c1d1d;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2.25rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e5ddc8;
+  }
+
+  .legal-content h2:first-child {
+    margin-top: 0;
+  }
+
+  .legal-content h3 {
+    font-family: 'Libre Baskerville', serif;
+    color: #1c1d1d;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .legal-content p {
+    color: #5c5852;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  .legal-content ul,
+  .legal-content ol {
+    color: #5c5852;
+    font-size: 0.9rem;
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    padding-left: 1.25rem;
+  }
+
+  .legal-content ul {
+    list-style: disc;
+  }
+
+  .legal-content ol {
+    list-style: decimal;
+  }
+
+  .legal-content li {
+    margin-bottom: 0.4rem;
+  }
+
+  .legal-content li::marker {
+    color: #c9a84c;
+  }
+
+  .legal-content a {
+    color: #6c1212;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .legal-content a:hover {
+    color: #85641b;
+  }
+
+  .legal-content strong {
+    color: #1c1d1d;
+    font-weight: 600;
+  }
 }
