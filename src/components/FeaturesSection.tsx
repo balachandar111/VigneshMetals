@@ -95,7 +95,7 @@ export default function FeaturesSection() {
           </div>
           <h2 className="section-heading mb-4">The Vignesh Super Store Difference</h2>
           <p className="text-brand-text max-w-2xl mx-auto text-sm leading-relaxed">
-            For over 38 years, Vignesh Super Store has been the trusted name for authentic
+            For over 25 years, Vignesh Super Store has been the trusted name for authentic
             South Indian brass oil lamps. Our commitment to quality and tradition sets us apart.
           </p>
         </div>
