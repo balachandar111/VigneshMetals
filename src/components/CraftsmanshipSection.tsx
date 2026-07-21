@@ -55,8 +55,8 @@ export default function CraftsmanshipSection() {
               {/* Main large image */}
               <div className="col-span-2 relative overflow-hidden" style={{ borderRadius: '10px', height: '280px' }}>
                 <img
-                  src="https://images.unsplash.com/photo-1609710228159-0fa9bd7c0827?w=800&h=400&fit=crop&q=80"
-                  alt="Master craftsman hand-engraving intricate patterns on a traditional South Indian brass oil lamp"
+                  src="/assets/images/catalog/main1.jpg"
+                  alt="Skilled craftsman hammering and shaping metal at an anvil in a traditional workshop"
                   className="w-full h-full object-cover" />
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />

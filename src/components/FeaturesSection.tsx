@@ -95,7 +95,7 @@ export default function FeaturesSection() {
           </div>
           <h2 className="section-heading mb-4">The Vignesh Super Store Difference</h2>
           <p className="text-brand-text max-w-2xl mx-auto text-sm leading-relaxed">
-            For over 25 years, Vignesh Super Store has been the trusted name for authentic
+            For over 38 years, Vignesh Super Store has been the trusted name for authentic
             South Indian brass oil lamps. Our commitment to quality and tradition sets us apart.
           </p>
         </div>
@@ -105,16 +105,32 @@ export default function FeaturesSection() {
           {features?.map((feature, i) => (
             <div
               key={feature?.title}
-              className={`bg-white p-6 md:p-8 group hover:shadow-product-hover transition-all duration-500 ${
+              className={`group relative bg-white p-6 md:p-8 overflow-hidden transition-all duration-500 ease-out hover:shadow-2xl ${
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
               }`}
               style={{ transitionDelay: `${i * 100}ms`, borderRadius: '10px' }}
             >
-              <div className="mb-5 transition-transform duration-300 group-hover:scale-110 inline-block">
+              {/* Maroon panel that rises up from the bottom to fill the card on hover */}
+              <div
+                className="absolute inset-x-0 bottom-0 h-0 bg-primary transition-all duration-500 ease-out group-hover:h-full"
+              ></div>
+
+              {/* Index number, top right */}
+              <span className="absolute top-5 right-6 font-heading text-3xl text-brand-border transition-colors duration-500 group-hover:text-white/20">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+
+              {/* Icon in a circle: cream by default, gold once the panel rises */}
+              <div className="relative z-10 mb-5 inline-flex items-center justify-center w-16 h-16 rounded-full bg-warm-cream transition-colors duration-500 group-hover:bg-accent-gold">
                 {feature?.icon}
               </div>
-              <h3 className="font-heading text-lg text-brand-dark mb-3">{feature?.title}</h3>
-              <p className="text-brand-text text-sm leading-relaxed">{feature?.description}</p>
+
+              <h3 className="relative z-10 font-heading text-lg mb-3 transition-colors duration-500 text-brand-dark group-hover:text-white">
+                {feature?.title}
+              </h3>
+              <p className="relative z-10 text-sm leading-relaxed transition-colors duration-500 text-brand-text group-hover:text-white/85">
+                {feature?.description}
+              </p>
             </div>
           ))}
         </div>

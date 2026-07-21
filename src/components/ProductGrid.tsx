@@ -430,21 +430,24 @@ export default function ProductGrid() {
             </button>
           </div> :
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-7">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-5">
           {filteredProducts.map((product, i) =>
           <div
             key={product.id}
             className={`group cursor-pointer transition-all duration-700 ${
             visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`
             }
-            style={{ transitionDelay: `${i * 80}ms` }}
+            style={{ transitionDelay: `${i * 60}ms` }}
             onMouseEnter={() => setHoveredId(product.id)}
             onMouseLeave={() => setHoveredId(null)}>
             
               {/* Artifact Display Frame */}
               <div
-              className="relative overflow-hidden bg-warm-cream border border-brand-border transition-all duration-300 group-hover:border-accent-gold group-hover:shadow-product-hover group-hover:-translate-y-1"
-              style={{ borderRadius: '4px' }}>
+              className="relative overflow-hidden bg-warm-cream border border-brand-border transition-all duration-300 group-hover:border-accent-gold group-hover:shadow-product-hover group-hover:-translate-y-1.5"
+              style={{
+                borderRadius: '4px',
+                boxShadow: hoveredId === product.id ? '0 0 0 3px rgba(201,168,76,0.15)' : undefined
+              }}>
                 
                 {/* Image Container */}
                 <div className="relative overflow-hidden" style={{ paddingBottom: '100%' }}>
@@ -464,48 +467,48 @@ export default function ProductGrid() {
                 map((pos, idx) =>
                 <span
                   key={idx}
-                  className={`absolute w-4 h-4 md:w-5 md:h-5 m-2 border-accent-gold transition-all duration-300 ${pos} ${
+                  className={`absolute w-3 h-3 md:w-4 md:h-4 m-1.5 md:m-2 border-accent-gold transition-all duration-300 ${pos} ${
                   hoveredId === product.id ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`
                   }>
                 </span>
                 )}
 
                   {/* Badges */}
-                  <div className="absolute top-3 left-3 flex flex-col gap-1 z-10">
+                  <div className="absolute top-2 left-2 flex flex-col gap-1 z-10">
                     {product.isNew &&
-                  <span className="bg-primary text-white text-[10px] font-medium tracking-wider uppercase px-2 py-1 shadow-sm">New</span>
+                  <span className="bg-primary text-white text-[9px] font-medium tracking-wider uppercase px-1.5 py-0.5 shadow-sm">New</span>
                   }
                     {product.isBestseller &&
-                  <span className="brass-shine text-white text-[10px] font-medium tracking-wider uppercase px-2 py-1 shadow-sm">Bestseller</span>
+                  <span className="brass-shine text-white text-[9px] font-medium tracking-wider uppercase px-1.5 py-0.5 shadow-sm">Bestseller</span>
                   }
                   </div>
 
                   {/* Hover Action */}
                   <div
-                  className={`absolute bottom-0 left-0 right-0 p-3 transition-all duration-300 ${
+                  className={`absolute bottom-0 left-0 right-0 p-2 transition-all duration-300 ${
                   hoveredId === product.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`
                   }>
                     <button
                     onClick={handleScrollToContact}
-                    className="w-full bg-warm-cream/95 backdrop-blur-sm text-primary text-xs font-medium tracking-wide py-2.5 px-3 flex items-center justify-center gap-1.5 border border-accent-gold hover:bg-primary hover:text-white hover:border-primary transition-colors duration-300">
-                      <svg className="w-3.5 h-3.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    className="w-full bg-warm-cream/95 backdrop-blur-sm text-primary text-[11px] font-medium tracking-wide py-2 px-2 flex items-center justify-center gap-1 border border-accent-gold hover:bg-primary hover:text-white hover:border-primary transition-colors duration-300">
+                      <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                       </svg>
-                      Enquire Now
+                      Enquire
                     </button>
                   </div>
                 </div>
               </div>
 
               {/* Product Info */}
-              <div className="pt-3 px-1">
-                <div className="flex items-center gap-2 mb-1.5">
-                  <span className="text-[10px] text-accent-gold uppercase tracking-widest font-medium">{product.material}</span>
-                  <span className="w-1 h-1 rounded-full bg-brand-border"></span>
-                  <span className="text-[10px] text-brand-text uppercase tracking-wider">{product.size}</span>
+              <div className="pt-2.5 px-0.5">
+                <div className="flex items-center gap-1.5 mb-1">
+                  <span className="text-[9px] text-accent-gold uppercase tracking-widest font-medium">{product.material}</span>
+                  <span className="w-1 h-1 rounded-full bg-brand-border flex-shrink-0"></span>
+                  <span className="text-[9px] text-brand-text uppercase tracking-wider truncate">{product.size}</span>
                 </div>
-                <h3 className="font-heading text-sm md:text-base text-brand-dark leading-snug group-hover:text-primary transition-colors duration-300 line-clamp-2">
+                <h3 className="font-heading text-xs md:text-sm text-brand-dark leading-snug group-hover:text-primary transition-colors duration-300 line-clamp-2">
                   {product.shortName}
                 </h3>
               </div>

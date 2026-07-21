@@ -40,6 +40,7 @@ export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState('');
   const [mobileSearchQuery, setMobileSearchQuery] = useState('');
   const menuRef = useRef<HTMLDivElement>(null);
+  const toggleButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -49,7 +50,14 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      // Ignore clicks on the toggle button itself — its own onClick already
+      // handles opening/closing, so acting on it here would race with that
+      // handler and immediately re-open the menu it just closed.
+      if (toggleButtonRef.current && toggleButtonRef.current.contains(target)) {
+        return;
+      }
+      if (menuRef.current && !menuRef.current.contains(target)) {
         setMobileOpen(false);
         setActiveSubmenu(null);
       }
@@ -145,11 +153,11 @@ export default function Navbar() {
             {/* Logo */}
             <Link to="/" className="flex flex-col items-center">
               <div className="flex items-center gap-2">
-                <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center overflow-hidden rounded-full">
+                <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
                   <img
                     src="/assets/images/catalog/logo1.jpeg"
                     alt="Vignesh Super Store logo"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                 </div>
                 <div>
@@ -164,6 +172,7 @@ export default function Navbar() {
             <div className="flex items-center gap-4 w-48 justify-end">
               {/* Mobile menu button */}
               <button
+                ref={toggleButtonRef}
                 className="md:hidden text-primary"
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-label="Toggle menu"
