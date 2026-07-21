@@ -102,7 +102,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-shadow duration-300 ${
+      className={`transition-shadow duration-300 ${
         scrolled ? 'shadow-drawer' : ''
       }`}
     >
@@ -115,19 +115,19 @@ export default function Navbar() {
       </div>
 
       {/* Main Nav */}
-      <div className="bg-white border-b border-brand-border">
+      <div className="bg-nav-bg border-b border-brand-border">
         <div className="max-w-[1500px] mx-auto px-5 md:px-10">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Search (desktop) */}
             <div className="hidden md:flex items-center gap-2 w-48">
-              <div className="flex items-center border border-brand-border px-3 py-2 w-full focus-within:border-primary transition-colors">
+              <div className="flex items-center bg-white border border-brand-border px-3 py-2 w-full focus-within:border-primary transition-colors">
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   onKeyDown={(e) => handleSearchKeyDown(e, searchQuery)}
                   placeholder="Search lamps..."
-                  className="text-xs text-brand-text outline-none w-full font-body placeholder-brand-text"
+                  className="text-xs text-brand-text outline-none w-full font-body placeholder-brand-text bg-transparent"
                 />
                 <button
                   type="button"
@@ -222,16 +222,16 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div ref={menuRef} className="md:hidden bg-white border-b border-brand-border shadow-drawer">
+        <div ref={menuRef} className="md:hidden bg-nav-bg border-b border-brand-border shadow-drawer">
           <div className="px-5 py-4">
-            <div className="flex items-center border border-brand-border px-3 py-2 mb-4 focus-within:border-primary transition-colors">
+            <div className="flex items-center bg-white border border-brand-border px-3 py-2 mb-4 focus-within:border-primary transition-colors">
               <input
                 type="text"
                 value={mobileSearchQuery}
                 onChange={(e) => setMobileSearchQuery(e.target.value)}
                 onKeyDown={(e) => handleSearchKeyDown(e, mobileSearchQuery)}
                 placeholder="Search lamps..."
-                className="text-xs text-brand-text outline-none w-full font-body"
+                className="text-xs text-brand-text outline-none w-full font-body bg-transparent"
               />
               <button
                 type="button"

@@ -353,7 +353,7 @@ export default function ProductGrid() {
   );
 
   return (
-    <section ref={sectionRef} className="py-16 md:py-20 bg-white relative overflow-hidden" id="products">
+    <section ref={sectionRef} className="py-16 md:py-20 bg-body-bg relative overflow-hidden" id="products">
       {/* Ambient backdrop accents */}
       <div className="pointer-events-none absolute -top-24 -right-24 w-96 h-96 rounded-full opacity-[0.04]" style={{ background: 'radial-gradient(circle, #c9a84c 0%, transparent 70%)' }}></div>
       <div className="pointer-events-none absolute -bottom-24 -left-24 w-96 h-96 rounded-full opacity-[0.04]" style={{ background: 'radial-gradient(circle, #6c1212 0%, transparent 70%)' }}></div>

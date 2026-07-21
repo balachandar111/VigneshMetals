@@ -38,7 +38,7 @@ export default function HeroSection() {
   return (
     <section
       ref={heroRef}
-      className="relative min-h-[85vh] bg-white overflow-hidden flex items-center"
+      className="relative min-h-[85vh] bg-hero-bg overflow-hidden flex items-center"
       style={{
         background: 'linear-gradient(135deg, #fff9ea 0%, #ffffff 50%, #fff9ea 100%)',
       }}

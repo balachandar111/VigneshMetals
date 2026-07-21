@@ -12,7 +12,7 @@ interface LegalPageLayoutProps {
 
 export default function LegalPageLayout({ title, eyebrow, lastUpdated, children }: LegalPageLayoutProps) {
   return (
-    <main className="font-body bg-white">
+    <main className="font-body bg-body-bg">
       <Navbar />
 
       {/* Page Header */}

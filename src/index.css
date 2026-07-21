@@ -23,8 +23,8 @@ img {
 @layer base {
   html {
     font-family: 'Poppins', sans-serif;
-    color: #808080;
-    background-color: #ffffff;
+    color: #7a6f5f;
+    background-color: #f2e3c8;
     scroll-behavior: smooth;
   }
 
@@ -92,7 +92,7 @@ img {
   }
 
   .bg-warm-cream {
-    background-color: #fff9ea;
+    background-color: #f7ecd8;
   }
 
   .border-gold {
