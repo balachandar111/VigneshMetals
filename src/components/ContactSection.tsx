@@ -1,5 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 
+// WhatsApp number that submitted enquiries are sent to (with country code, no + or spaces)
+const WHATSAPP_NUMBER = '919876543210';
+
 export default function ContactSection() {
   const [visible, setVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -23,6 +26,20 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Build a readable enquiry message from the form fields
+    const lines = [
+      'New enquiry from Vignesh Super Store website',
+      `Name: ${formData.name}`,
+      `Phone: ${formData.phone}`,
+      formData.email && `Email: ${formData.email}`,
+      formData.product && `Product Interest: ${formData.product}`,
+      formData.message && `Message: ${formData.message}`,
+    ].filter(Boolean).join('\n');
+
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines)}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 4000);
     setFormData({ name: '', email: '', phone: '', product: '', message: '' });

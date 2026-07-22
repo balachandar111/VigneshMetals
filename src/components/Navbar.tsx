@@ -12,20 +12,20 @@ const navItems: NavItem[] = [
     label: 'Products',
     href: '#products',
     submenu: [
-      { label: 'Brass Diyas', href: '#products' },
-      { label: 'Kamatchi & Temple Items', href: '#products' },
-      { label: 'Pooja Articles & Vessels', href: '#products' },
-      { label: 'Plates & Kitchenware', href: '#products' },
+      { label: 'Brass Diyas', href: '/category/brass-diyas' },
+      { label: 'Kamatchi & Temple Items', href: '/category/kamatchi-temple-items' },
+      { label: 'Pooja Articles & Vessels', href: '/category/pooja-articles-vessels' },
+      { label: 'Plates & Kitchenware', href: '/category/plates-kitchenware' },
     ],
   },
   {
     label: 'Collections',
     href: '#collections',
     submenu: [
-      { label: 'Brass Diyas', href: '#products' },
-      { label: 'Kamatchi & Temple Items', href: '#products' },
-      { label: 'Pooja Articles & Vessels', href: '#products' },
-      { label: 'Plates & Kitchenware', href: '#products' },
+      { label: 'Brass Diyas', href: '/category/brass-diyas' },
+      { label: 'Kamatchi & Temple Items', href: '/category/kamatchi-temple-items' },
+      { label: 'Pooja Articles & Vessels', href: '/category/pooja-articles-vessels' },
+      { label: 'Plates & Kitchenware', href: '/category/plates-kitchenware' },
     ],
   },
   { label: 'Craftsmanship', href: '#craftsmanship' },
@@ -90,9 +90,10 @@ export default function Navbar() {
     goToSection(href);
   };
 
-  const handleSubmenuClick = (href: string, categoryLabel: string) => {
-    window.dispatchEvent(new CustomEvent('vm-filter-category', { detail: categoryLabel }));
-    handleNavClick(href);
+  const handleSubmenuClick = (href: string) => {
+    setMobileOpen(false);
+    setActiveSubmenu(null);
+    navigate(href);
   };
 
   const runSearch = (query: string) => {
@@ -215,7 +216,7 @@ export default function Navbar() {
                     {item.submenu.map((sub) => (
                       <button
                         key={sub.label}
-                        onClick={() => handleSubmenuClick(sub.href, sub.label)}
+                        onClick={() => handleSubmenuClick(sub.href)}
                         className="block w-full text-left px-5 py-2 text-xs text-brand-text hover:text-primary hover:bg-secondary transition-colors"
                       >
                         {sub.label}
@@ -280,7 +281,7 @@ export default function Navbar() {
                     {item.submenu.map((sub) => (
                       <button
                         key={sub.label}
-                        onClick={() => handleSubmenuClick(sub.href, sub.label)}
+                        onClick={() => handleSubmenuClick(sub.href)}
                         className="block w-full text-left py-2 text-xs text-brand-text hover:text-primary"
                       >
                         {sub.label}

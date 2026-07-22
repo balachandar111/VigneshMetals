@@ -24,18 +24,20 @@ export default function Footer() {
     }
   };
 
-  const collectionLabels = new Set([
-    'Brass Diyas',
-    'Kamatchi & Temple Items',
-    'Pooja Articles & Vessels',
-    'Plates & Kitchenware',
-  ]);
+  const collectionSlugs: Record<string, string> = {
+    'Brass Diyas': 'brass-diyas',
+    'Kamatchi & Temple Items': 'kamatchi-temple-items',
+    'Pooja Articles & Vessels': 'pooja-articles-vessels',
+    'Plates & Kitchenware': 'plates-kitchenware',
+  };
 
   const handleLinkClick = (label: string, href: string) => {
-    if (collectionLabels.has(label)) {
-      window.dispatchEvent(new CustomEvent('vm-filter-category', { detail: label }));
+    const slug = collectionSlugs[label];
+    if (slug) {
+      navigate(`/category/${slug}`);
+    } else {
+      handleNavClick(href);
     }
-    handleNavClick(href);
   };
 
   const footerLinks = [
@@ -51,10 +53,10 @@ export default function Footer() {
     {
       heading: 'COLLECTIONS',
       links: [
-        { label: 'Brass Diyas', href: '#products' },
-        { label: 'Kamatchi & Temple Items', href: '#products' },
-        { label: 'Pooja Articles & Vessels', href: '#products' },
-        { label: 'Plates & Kitchenware', href: '#products' },
+        { label: 'Brass Diyas', href: '/category/brass-diyas' },
+        { label: 'Kamatchi & Temple Items', href: '/category/kamatchi-temple-items' },
+        { label: 'Pooja Articles & Vessels', href: '/category/pooja-articles-vessels' },
+        { label: 'Plates & Kitchenware', href: '/category/plates-kitchenware' },
       ],
     },
     {
