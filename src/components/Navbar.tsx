@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { categoryList } from '../data/categories';
 
 interface NavItem {
   label: string;
@@ -7,26 +8,24 @@ interface NavItem {
   submenu?: { label: string; href: string }[];
 }
 
+// Built from categoryList (src/data/categories.ts) so the menu always
+// matches your actual Cloudinary categories — add/remove a category there
+// and this menu updates automatically.
+const categorySubmenu = categoryList.map((c) => ({
+  label: c.name,
+  href: `/category/${c.slug}`,
+}));
+
 const navItems: NavItem[] = [
   {
     label: 'Products',
     href: '#products',
-    submenu: [
-      { label: 'Brass Diyas', href: '/category/brass-diyas' },
-      { label: 'Kamatchi & Temple Items', href: '/category/kamatchi-temple-items' },
-      { label: 'Pooja Articles & Vessels', href: '/category/pooja-articles-vessels' },
-      { label: 'Plates & Kitchenware', href: '/category/plates-kitchenware' },
-    ],
+    submenu: categorySubmenu,
   },
   {
     label: 'Collections',
     href: '#collections',
-    submenu: [
-      { label: 'Brass Diyas', href: '/category/brass-diyas' },
-      { label: 'Kamatchi & Temple Items', href: '/category/kamatchi-temple-items' },
-      { label: 'Pooja Articles & Vessels', href: '/category/pooja-articles-vessels' },
-      { label: 'Plates & Kitchenware', href: '/category/plates-kitchenware' },
-    ],
+    submenu: categorySubmenu,
   },
   { label: 'Craftsmanship', href: '#craftsmanship' },
   { label: 'About Us', href: '#about' },
@@ -75,6 +74,12 @@ export default function Navbar() {
   };
 
   const goToSection = (href: string) => {
+    // Some sections (like #contact) now exist on multiple pages, not just
+    // Home — so check the current page first instead of always redirecting.
+    if (document.querySelector(href)) {
+      scrollToSection(href);
+      return;
+    }
     if (location.pathname !== '/') {
       navigate('/');
       // Wait for the home page to mount before scrolling

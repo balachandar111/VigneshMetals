@@ -1,7 +1,7 @@
-import type { Product } from '../data/products';
+import type { DisplayProduct } from '../types/product';
 
 interface ProductCardProps {
-  product: Product;
+  product: DisplayProduct;
   index?: number;
   visible?: boolean;
   onEnquire: () => void;
@@ -53,11 +53,9 @@ export default function ProductCard({ product, index = 0, visible = true, onEnqu
       <div className="p-4 text-center">
         <div className="flex items-center justify-center gap-1.5 mb-1">
           <span className="text-[9px] text-accent-gold uppercase tracking-widest font-medium">{product.material}</span>
-          <span className="w-1 h-1 rounded-full bg-brand-border flex-shrink-0"></span>
-          <span className="text-[9px] text-brand-text uppercase tracking-wider">{product.size}</span>
         </div>
         <div className="font-heading text-sm md:text-base text-brand-dark group-hover:text-primary transition-colors line-clamp-2">
-          {product.shortName}
+          Multi Size Available
         </div>
       </div>
     </div>

@@ -2,8 +2,10 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import ContactSection from '../components/ContactSection';
 import ProductCard from '../components/ProductCard';
-import { categoryList, getCategoryBySlug, getProductsByCategory } from '../data/products';
+import { categoryList, getCategoryBySlug } from '../data/categories';
+import { useCategoryProducts } from '../hooks/useCloudinaryProducts';
 
 const PAGE_SIZE = 20;
 
@@ -13,7 +15,7 @@ export default function CategoryPage() {
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
 
   const category = slug ? getCategoryBySlug(slug) : undefined;
-  const allProducts = useMemo(() => category ? getProductsByCategory(category.name) : [], [category]);
+  const { products: allProducts, loading, error } = useCategoryProducts(category);
 
   // Reset pagination and search whenever the category changes
   useEffect(() => {
@@ -35,13 +37,14 @@ export default function CategoryPage() {
 
   const normalizedQuery = searchQuery.trim().toLowerCase();
 
-  const filteredProducts = normalizedQuery ?
-  allProducts.filter((p) =>
-  p.shortName.toLowerCase().includes(normalizedQuery) ||
-  p.name.toLowerCase().includes(normalizedQuery) ||
-  p.material.toLowerCase().includes(normalizedQuery)
-  ) :
-  allProducts;
+  const filteredProducts = useMemo(() => {
+    if (!normalizedQuery) return allProducts;
+    return allProducts.filter((p) =>
+    p.shortName.toLowerCase().includes(normalizedQuery) ||
+    p.name.toLowerCase().includes(normalizedQuery) ||
+    p.material.toLowerCase().includes(normalizedQuery)
+    );
+  }, [allProducts, normalizedQuery]);
 
   const visibleProducts = filteredProducts.slice(0, visibleCount);
   const hasMore = visibleCount < filteredProducts.length;
@@ -91,7 +94,13 @@ export default function CategoryPage() {
           </div>
           <h1 className="section-heading text-gradient-gold mb-3">{category.name}</h1>
           <p className="text-xs text-brand-text">
-            <span className="text-brand-dark font-semibold">{allProducts.length}</span> Handcrafted Pieces
+            {loading ?
+            'Loading…' :
+
+            <>
+                <span className="text-brand-dark font-semibold">{allProducts.length}</span> Handcrafted Pieces
+              </>
+            }
           </p>
         </div>
       </div>
@@ -127,7 +136,18 @@ export default function CategoryPage() {
           </div>
         </div>
 
-        {filteredProducts.length === 0 ?
+        {loading ?
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+            {Array.from({ length: PAGE_SIZE / 2 }).map((_, i) =>
+          <div key={i} className="animate-pulse bg-warm-cream" style={{ aspectRatio: '1 / 1.25', borderRadius: '10px' }} />
+          )}
+          </div> :
+        error ?
+        <div className="text-center py-16 border border-dashed border-red-300 bg-red-50/40">
+            <p className="text-red-700 text-sm mb-2 font-medium">Couldn&rsquo;t load this category from Cloudinary.</p>
+            <p className="text-brand-text text-xs max-w-md mx-auto">{error}</p>
+          </div> :
+        filteredProducts.length === 0 ?
         <div className="text-center py-16 border border-dashed border-brand-border">
             <p className="text-brand-text text-sm mb-3">
               No products found{normalizedQuery ? <> for &ldquo;{searchQuery}&rdquo;</> : ''} in {category.name}.
@@ -139,6 +159,7 @@ export default function CategoryPage() {
               Clear search
             </button>
           </div> :
+
 
         <>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
@@ -169,6 +190,7 @@ export default function CategoryPage() {
         }
       </div>
 
+      <ContactSection />
       <Footer />
     </main>);
 

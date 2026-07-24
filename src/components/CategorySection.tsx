@@ -1,48 +1,20 @@
 import { useEffect, useRef, useState } from 'react';
-
-interface Category {
-  name: string;
-  image: string;
-  alt: string;
-  href: string;
-  count: string;
-}
-
-const categories: Category[] = [
-{
-  name: 'Brass Diyas',
-  image: "/assets/images/catalog/brass-diya-piyali-nanda-0.jpg",
-  alt: 'Traditional brass diyas and oil lamps including Kuthu Vilakku, Kerala Vilakku and fancy diyas',
-  href: '#products',
-  count: '12+ Designs'
-},
-{
-  name: 'Kamatchi & Temple Items',
-  image: "/assets/images/catalog/kamatchi-kuber-kamatchi-0.jpg",
-  alt: 'Kamatchi lamps, temple bells, kalasam and other temple utensils in brass and copper',
-  href: '#products',
-  count: '8+ Designs'
-},
-{
-  name: 'Pooja Articles & Vessels',
-  image: "/assets/images/catalog/br-cop-pooja-article-cop-p-pathiram-0.jpg",
-  alt: 'Brass and copper pooja pathiram vessels for daily rituals',
-  href: '#products',
-  count: '4 Designs'
-},
-{
-  name: 'Plates & Kitchenware',
-  image: "/assets/images/catalog/br-cop-plates-cop-fancy-plate-0.jpg",
-  alt: 'Brass and copper plates and tope covers for home and temple use',
-  href: '#products',
-  count: '2 Designs'
-}];
-
+import { categoryList } from '../data/categories';
+import { useCategoryCovers } from '../hooks/useCloudinaryProducts';
 
 export default function CategorySection() {
   const [visible, setVisible] = useState(false);
   const [hoveredCat, setHoveredCat] = useState<string | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const { covers, loading: coversLoading } = useCategoryCovers();
+
+  const categories = categoryList.map((cat) => ({
+    name: cat.name,
+    image: covers[cat.slug] || '',
+    alt: `${cat.name} handcrafted ${cat.material} collection`,
+    href: '#products',
+    count: 'View Collection'
+  }));
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -85,7 +57,7 @@ export default function CategorySection() {
         </div>
 
         {/* Category Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 md:gap-7">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-7">
           {categories.map((cat, i) =>
           <button
             key={cat.name}
@@ -106,13 +78,19 @@ export default function CategorySection() {
               }}>
                 
                 {/* Image */}
-                <div className="relative overflow-hidden" style={{ paddingBottom: '100%' }}>
-                  <img
+                <div className="relative overflow-hidden bg-warm-cream" style={{ paddingBottom: '100%' }}>
+                  {coversLoading || !cat.image ?
+                <div className="absolute inset-0 animate-pulse bg-warm-cream" /> :
+
+                <img
                   src={cat.image}
                   alt={cat.alt}
+                  loading="lazy"
                   className={`absolute inset-0 w-full h-full object-cover transition-all duration-700 ${
                   hoveredCat === cat.name ? 'scale-110' : 'scale-100'}`
                   } />
+
+                }
                 
 
                   {/* Vignette for depth */}

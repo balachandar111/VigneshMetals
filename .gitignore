@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Contains CLOUDINARY_API_SECRET — never commit this
+.env
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

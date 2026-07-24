@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { categoryList } from '../data/categories';
 
 // WhatsApp number that submitted enquiries are sent to (with country code, no + or spaces)
 const WHATSAPP_NUMBER = '919876543210';
@@ -232,12 +233,9 @@ export default function ContactSection() {
                       className="w-full border border-brand-border px-4 py-3 text-sm text-brand-dark outline-none focus:border-primary transition-colors bg-white"
                     >
                       <option value="">Select a product</option>
-                      <option>Kuthu Vilakku</option>
-                      <option>Deepa Lakshmi Lamp</option>
-                      <option>Hanging Temple Lamp</option>
-                      <option>Navagraha Lamp</option>
-                      <option>Elephant Design Lamp</option>
-                      <option>Peacock Diya Stand</option>
+                      {categoryList.map((c) => (
+                        <option key={c.slug}>{c.name}</option>
+                      ))}
                       <option>Custom Order</option>
                     </select>
                   </div>

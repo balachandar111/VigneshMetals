@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { categoryList, products } from '../data/products';
+import { categoryList } from '../data/categories';
+import { useAllProducts, useCategoryProducts } from '../hooks/useCloudinaryProducts';
 import ProductCard from './ProductCard';
 
 const PREVIEW_COUNT = 5;
@@ -60,8 +61,17 @@ export default function ProductGrid() {
   const normalizedQuery = searchQuery.trim().toLowerCase();
   const isSearching = normalizedQuery.length > 0;
 
+  const activeCategoryMeta = categoryList.find((c) => c.name === selectedCategory);
+
+  // Only fetch the selected category's images from Cloudinary...
+  const { products: categoryProducts, loading: categoryLoading, error: categoryError } =
+  useCategoryProducts(activeCategoryMeta);
+
+  // ...and only fetch every category (for search) once the user actually searches.
+  const { products: allProducts, loading: allLoading } = useAllProducts(isSearching);
+
   const searchResults = isSearching ?
-  products.filter((p) =>
+  allProducts.filter((p) =>
   p.shortName.toLowerCase().includes(normalizedQuery) ||
   p.name.toLowerCase().includes(normalizedQuery) ||
   p.material.toLowerCase().includes(normalizedQuery) ||
@@ -69,11 +79,8 @@ export default function ProductGrid() {
   ) :
   [];
 
-  // Products belonging to the currently selected category only
-  const categoryProducts = products.filter((p) => p.category === selectedCategory);
   const visibleProducts = showAll ? categoryProducts : categoryProducts.slice(0, PREVIEW_COUNT);
   const hasMore = !showAll && categoryProducts.length > PREVIEW_COUNT;
-  const activeCategoryMeta = categoryList.find((c) => c.name === selectedCategory);
 
   return (
     <section ref={sectionRef} className="py-16 md:py-20 bg-body-bg relative overflow-hidden" id="products">
@@ -95,12 +102,6 @@ export default function ProductGrid() {
             </div>
             <h2 className="section-heading text-gradient-gold">Brass Oil Lamps</h2>
           </div>
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-accent-gold"></span>
-            <span className="text-sm text-brand-text tracking-wide">
-              <span className="text-brand-dark font-semibold">{products.length}</span> Handcrafted Pieces
-            </span>
-          </div>
         </div>
 
         {isSearching ?
@@ -108,8 +109,14 @@ export default function ProductGrid() {
         <>
             <div className="mb-8 flex items-center gap-2">
               <span className="text-xs text-brand-text">
-                Showing results for <span className="text-brand-dark font-medium">&ldquo;{searchQuery}&rdquo;</span>
-                {' '}({searchResults.length})
+                {allLoading ?
+              'Searching...' :
+
+              <>
+                    Showing results for <span className="text-brand-dark font-medium">&ldquo;{searchQuery}&rdquo;</span>
+                    {' '}({searchResults.length})
+                  </>
+              }
               </span>
               <button
               onClick={clearSearch}
@@ -119,7 +126,7 @@ export default function ProductGrid() {
               </button>
             </div>
 
-            {searchResults.length === 0 ?
+            {!allLoading && searchResults.length === 0 ?
           <div className="text-center py-16 border border-dashed border-brand-border">
                 <p className="text-brand-text text-sm mb-3">No products found for &ldquo;{searchQuery}&rdquo;.</p>
                 <button
@@ -165,7 +172,7 @@ export default function ProductGrid() {
 
             <div className="flex items-center justify-between mb-5 gap-4">
               <h3 className="font-heading text-lg md:text-xl text-brand-dark">{selectedCategory}</h3>
-              {activeCategoryMeta &&
+              {activeCategoryMeta && !categoryLoading &&
             <Link
               to={`/category/${activeCategoryMeta.slug}`}
               className="flex-shrink-0 text-xs md:text-sm text-primary hover:text-primary-light font-medium tracking-wide inline-flex items-center gap-1 group">
@@ -178,10 +185,22 @@ export default function ProductGrid() {
             }
             </div>
 
-            {categoryProducts.length === 0 ?
+            {categoryLoading ?
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
+                {Array.from({ length: PREVIEW_COUNT }).map((_, i) =>
+            <div key={i} className="animate-pulse bg-warm-cream" style={{ aspectRatio: '1 / 1.25', borderRadius: '10px' }} />
+            )}
+              </div> :
+          categoryError ?
+          <div className="text-center py-16 border border-dashed border-red-300 bg-red-50/40">
+                <p className="text-red-700 text-sm mb-2 font-medium">Couldn&rsquo;t load this category from Cloudinary.</p>
+                <p className="text-brand-text text-xs max-w-md mx-auto">{categoryError}</p>
+              </div> :
+          categoryProducts.length === 0 ?
           <div className="text-center py-16 border border-dashed border-brand-border">
                 <p className="text-brand-text text-sm">No products found in this category yet.</p>
               </div> :
+
 
           <>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-6">
